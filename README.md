@@ -1,8 +1,16 @@
 # antiaris-node-resolve
 [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency status][david-dm-image]][david-dm-url] [![Dev Dependency status][david-dm-dev-image]][david-dm-dev-url]
 
-Locate modules using the Node resolution algorithm, for using third party modules in node_modules
+解析文件依赖，找到真正的 CommonJS 指向。这在复用被发布到 NPM 上的资源时非常有用。
 
+```js
+import {resolve} from 'antiaris-node-resolve';
+
+resolve('src/index.js', './foo/foo');// src/foo/foo.js
+resolve('src/index.js', 'babel-core');// node_modules/babel-core/index.js
+```
+
+默认地，NodeJS 内建的模块会被忽略，比如 `fs`、`path`。
 
 [npm-url]: https://npmjs.org/package/antiaris-node-resolve
 [downloads-image]: http://img.shields.io/npm/dm/antiaris-node-resolve.svg

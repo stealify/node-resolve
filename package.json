@@ -27,6 +27,7 @@
     "mocha": "^2.5.3"
   },
   "dependencies": {
-    "is-builtin-module": "^1.0.0"
+    "is-builtin-module": "^1.0.0",
+    "lodash": "^4.13.1"
   }
 }

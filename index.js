@@ -25,7 +25,7 @@ const loadAsFile = exports.loadAsFile = module => {
     if (fs.existsSync(module) && fs.statSync(module).isFile()) {
         return module;
     }
-    
+
     if (fs.existsSync(`${module}.js`) && fs.statSync(`${module}.js`).isFile()) {
         return `${module}.js`;
     }
@@ -48,13 +48,8 @@ const loadAsDirectory = exports.loadAsDirectory = module => {
         let packagePath = `${module}/package.json`;
         if (fs.existsSync(packagePath) && fs.statSync(packagePath).isFile()) {
             const pkg = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
-            const main = path.join(module, pkg.main);
-            const mainStat = fs.statSync(main);
-            if (mainStat.isFile()) {
-                return main;
-            } else if (mainStat.isDirectory()) {
-                return loadAsDirectory(main);
-            }
+            const main = path.join(module, pkg.main || 'index.js');
+            return loadAsFile(main) || loadAsDirectory(main);
         } else if (fs.existsSync(`${module}/index.js`) && fs.statSync(`${module}/index.js`).isFile()) {
             return `${module}/index.js`;
         } else if (fs.existsSync(`${module}/index.json`) && fs.statSync(`${module}/index.json`).isFile()) {
@@ -76,6 +71,7 @@ const nodeModulesPaths = exports.nodeModulesPaths = start => {
     const dirs = [];
     while (i >= 0) {
         if ('node_modules' === parts[i]) {
+            i -= 1;
             continue;
         }
         let dir = path.join(parts.slice(0, i + 1).join(path.sep) || path.sep, 'node_modules');

@@ -25,5 +25,8 @@
   "homepage": "https://github.com/antiaris/antiaris-node-resolve#readme",
   "devDependencies": {
     "mocha": "^2.5.3"
+  },
+  "dependencies": {
+    "is-builtin-module": "^1.0.0"
   }
 }

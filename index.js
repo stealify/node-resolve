@@ -21,23 +21,19 @@ const isBuiltinModule = require('is-builtin-module');
 const isCore = exports.isCore = isBuiltinModule;
 
 const loadAsFile = exports.loadAsFile = module => {
-    let stat = fs.statSync(module);
 
-    if (stat.isFile()) {
+    if (fs.existsSync(module) && fs.statSync(module).isFile()) {
         return module;
     }
-
-    stat = fs.statSync(`${module}.js`);
-
-    if (stat.isFile()) {
+    
+    if (fs.existsSync(`${module}.js`) && fs.statSync(`${module}.js`).isFile()) {
         return `${module}.js`;
     }
 
-    stat = fs.statSync(`${module}.json`);
-
-    if (stat.isFile()) {
+    if (fs.existsSync(`${module}.json`) && fs.statSync(`${module}.json`).isFile()) {
         return `${module}.json`;
     }
+
 };
 
 const loadAsDirectory = exports.loadAsDirectory = module => {
@@ -51,17 +47,17 @@ const loadAsDirectory = exports.loadAsDirectory = module => {
     if (stat.isDirectory()) {
         let packagePath = `${module}/package.json`;
         if (fs.existsSync(packagePath) && fs.statSync(packagePath).isFile()) {
-            let package = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
-            let main = path.join(module, package.main);
-            let mainStat = fs.statSync(main);
+            const pkg = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
+            const main = path.join(module, pkg.main);
+            const mainStat = fs.statSync(main);
             if (mainStat.isFile()) {
                 return main;
             } else if (mainStat.isDirectory()) {
                 return loadAsDirectory(main);
             }
-        } else if(fs.existsSync(`${module}/index.js`)&&fs.statSync(`${module}/index.js`).isFile()){
+        } else if (fs.existsSync(`${module}/index.js`) && fs.statSync(`${module}/index.js`).isFile()) {
             return `${module}/index.js`;
-        } else if(fs.existsSync(`${module}/index.json`)&&fs.statSync(`${module}/index.json`).isFile()){
+        } else if (fs.existsSync(`${module}/index.json`) && fs.statSync(`${module}/index.json`).isFile()) {
             return `${module}/index.json`;
         }
     } else if (stat.isFile()) {
@@ -108,7 +104,7 @@ const resolve = exports.resolve = (script, dependency) => {
     let target;
 
     if (isCore(dependency)) {
-        throw new Error(`"${dependency}" is a Nodejs builtin module`);
+        return;
     }
 
     if (startsWith(dependency, './') || startsWith(dependency, '/') || startsWith(dependency, '../')) {

@@ -1,6 +1,6 @@
 {
     "name": "node-resolve",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "Locate modules using the Node resolution algorithm, for using third party modules in node_modules",
     "main": "index.js",
     "scripts": {

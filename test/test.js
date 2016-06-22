@@ -28,9 +28,9 @@ describe('node-resolve', function() {
         });
     });
     describe('#loadNpmModules', function() {
-        it('should get glob', function() {
-            var glob = nodeResolve.loadNpmModules('glob', __dirname);
-            assert.ok(fs.existsSync(glob));
+        it('should get is-builtin-module', function() {
+            var target = nodeResolve.loadNpmModules('is-builtin-module', __dirname);
+            assert.ok(fs.existsSync(target));
         });
 
         it('should get lodash/fp/extend', function() {
@@ -51,9 +51,9 @@ describe('node-resolve', function() {
         });
     });
     describe('#resolve', function() {
-        it('should resolve glob', function() {
-            var glob = nodeResolve.resolve(path.join(__dirname, '../index.js'), 'glob');
-            assert.ok(fs.existsSync(glob));
+        it('should resolve is-builtin-module', function() {
+            var target = nodeResolve.resolve(path.join(__dirname, '../index.js'), 'is-builtin-module');
+            assert.ok(fs.existsSync(target));
         });
         it('should resolve test', function() {
             var test = nodeResolve.resolve(path.join(__dirname, '../index.js'), './test/test.js');

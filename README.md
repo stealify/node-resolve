@@ -15,9 +15,9 @@ resolve('src/index.js', 'babel-core');// node_modules/babel-core/index.js
 [npm-url]: https://npmjs.org/package/node-resolve
 [downloads-image]: http://img.shields.io/npm/dm/node-resolve.svg
 [npm-image]: http://img.shields.io/npm/v/node-resolve.svg
-[travis-url]: https://travis-ci.org/antiaris/node-resolve
-[travis-image]: http://img.shields.io/travis/antiaris/node-resolve.svg
-[david-dm-url]:https://david-dm.org/antiaris/node-resolve
-[david-dm-image]:https://david-dm.org/antiaris/node-resolve.svg
-[david-dm-dev-url]:https://david-dm.org/antiaris/node-resolve#info=devDependencies
-[david-dm-dev-image]:https://david-dm.org/antiaris/node-resolve/dev-status.svg
+[travis-url]: https://travis-ci.org/yanni4night/node-resolve
+[travis-image]: http://img.shields.io/travis/yanni4night/node-resolve.svg
+[david-dm-url]:https://david-dm.org/yanni4night/node-resolve
+[david-dm-image]:https://david-dm.org/yanni4night/node-resolve.svg
+[david-dm-dev-url]:https://david-dm.org/yanni4night/node-resolve#info=devDependencies
+[david-dm-dev-image]:https://david-dm.org/yanni4night/node-resolve/dev-status.svg

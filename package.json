@@ -15,9 +15,6 @@
     "keywords": [
         "node-resolve"
     ],
-    "engines": {
-        "node": ">=6.0.0"
-    },
     "author": "yanni4night@gmail.com",
     "license": "MIT",
     "bugs": {

@@ -61,7 +61,7 @@ describe('node-resolve', function() {
         });
         it('should get null if builtin', function() {
             const fs = nodeResolve.resolve(path.join(__dirname, '../index.js'), 'fs');
-            assert.equal(fs, undefined);
+            assert.equal(fs, null);
         });
         it('should get null if undefined', function() {
             const foo = nodeResolve.resolve(path.join(__dirname, '../index.js'), './foo');

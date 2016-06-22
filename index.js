@@ -17,7 +17,6 @@ const fs = require('fs');
 const startsWith = require('lodash/startsWith');
 const isBuiltinModule = require('is-builtin-module');
 
-
 const isCore = exports.isCore = isBuiltinModule;
 
 const loadAsFile = exports.loadAsFile = module => {
@@ -96,11 +95,11 @@ const loadNpmModules = exports.loadNpmModules = (module, start) => {
     return target;
 };
 
-const resolve = exports.resolve = (script, dependency) => {
+exports.resolve = (script, dependency) => {
     let target;
 
     if (isCore(dependency)) {
-        return;
+        return null;
     }
 
     if (startsWith(dependency, './') || startsWith(dependency, '/') || startsWith(dependency, '../')) {

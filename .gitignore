@@ -2,6 +2,7 @@
 ._*
 *.swp
 *.pyc
+npm-debug.log
 node-debug.log
 node_modules
 bower_components

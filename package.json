@@ -1,33 +1,35 @@
 {
-  "name": "antiaris-node-resolve",
-  "version": "1.0.0",
-  "description": "Locate modules using the Node resolution algorithm, for using third party modules in node_modules ",
-  "main": "index.js",
-  "scripts": {
-    "test": "./node_modules/.bin/mocha"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/antiaris/antiaris-node-resolve.git"
-  },
-  "keywords": [
-    "antiaris",
-    "node-resolve"
-  ],
-  "engines": {
-    "node": ">=6.0.0"
-  },
-  "author": "yanni4night@gmail.com",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/antiaris/antiaris-node-resolve/issues"
-  },
-  "homepage": "https://github.com/antiaris/antiaris-node-resolve#readme",
-  "devDependencies": {
-    "mocha": "^2.5.3"
-  },
-  "dependencies": {
-    "is-builtin-module": "^1.0.0",
-    "lodash": "^4.13.1"
-  }
+    "name": "node-resolve",
+    "version": "1.0.0",
+    "description": "Locate modules using the Node resolution algorithm, for using third party modules in node_modules",
+    "main": "index.js",
+    "scripts": {
+        "eslint": "eslint index.js",
+        "mocha": "mocha",
+        "test": "npm run eslint && npm run mocha"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yanni4night/node-resolve.git"
+    },
+    "keywords": [
+        "node-resolve"
+    ],
+    "engines": {
+        "node": ">=6.0.0"
+    },
+    "author": "yanni4night@gmail.com",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/yanni4night/node-resolve/issues"
+    },
+    "homepage": "https://github.com/yanni4night/node-resolve#readme",
+    "devDependencies": {
+        "eslint": "^2.13.1",
+        "mocha": "^2.5.3"
+    },
+    "dependencies": {
+        "is-builtin-module": "^1.0.0",
+        "lodash": "^4.13.1"
+    }
 }

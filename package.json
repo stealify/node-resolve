@@ -1,6 +1,6 @@
 {
     "name": "node-resolve",
-    "version": "1.1.1",
+    "version": "1.2.1",
     "description": "Locate modules using the Node resolution algorithm, for using third party modules in node_modules",
     "main": "index.js",
     "scripts": {
@@ -19,6 +19,9 @@
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/yanni4night/node-resolve/issues"
+    },
+    "engines": {
+        "node": ">=0.10.0"
     },
     "homepage": "https://github.com/yanni4night/node-resolve#readme",
     "devDependencies": {

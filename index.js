@@ -111,5 +111,5 @@ exports.resolve = function (script, dependency, cwd) {
         target = loadNpmModules(dependency, path.dirname(script));
     }
 
-    return target;
+    return target ? path.relative(cwd, target) : target;
 };

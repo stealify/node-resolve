@@ -4,7 +4,7 @@
 Locate modules using the [Node resolution algorithm](https://nodejs.org/api/modules.html#modules_all_together), for using third party modules in node_modules.
 
 
-***v1.3 breaking change***, you have to pass a 'cwd' to resolve, '.' is default.
+***v1.3.x breaking change***, you have to pass a 'cwd' to resolve, '.' is default.
 
 ```js
 var nodeResolve = require('node-resolve');

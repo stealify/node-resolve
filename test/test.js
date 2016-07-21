@@ -22,8 +22,16 @@ describe('node-resolve', function () {
         });
     });
     describe('#nodeModulesPaths', function () {
-        it('should return all paths"', function () {
+        it('should return all paths', function () {
             var paths = nodeResolve.nodeModulesPaths(__dirname);
+            assert.deepEqual(paths.length, __dirname.split(path.sep).length);
+        });
+        it('should return all paths when last is "/"', function () {
+            var paths = nodeResolve.nodeModulesPaths(__dirname + '/');
+            assert.deepEqual(paths.length, __dirname.split(path.sep).length);
+        });
+        it('should return all paths when last is "node_modules"', function () {
+            var paths = nodeResolve.nodeModulesPaths(__dirname + '/node_modules');
             assert.deepEqual(paths.length, __dirname.split(path.sep).length);
         });
     });
@@ -66,8 +74,8 @@ describe('node-resolve', function () {
             assert.equal(fs, null);
         });
         it('should get null if undefined', function () {
-            var bar = nodeResolve.resolve('index.js', './bar', cwd);
-            assert.equal(bar, undefined);
+            var no = nodeResolve.resolve('index.js', './no', cwd);
+            assert.equal(no, undefined);
         });
         it('should get sub dir', function () {
             var foo = nodeResolve.resolve('index.js', 'lodash/fp/extend', cwd);
@@ -80,6 +88,14 @@ describe('node-resolve', function () {
         it('should get json', function () {
             var packageFile = nodeResolve.resolve('index.js', './package', cwd);
             assert.ok(fs.existsSync(packageFile));
+        });
+        it('should get json under dir', function () {
+            var bar = nodeResolve.resolve('index.js', './bar/', cwd);
+            assert.ok(fs.existsSync(bar));
+        });
+        it('should get file', function () {
+            var bar = nodeResolve.resolve('index.js', './moon', cwd);
+            assert.ok(fs.existsSync(bar));
         });
     });
 });

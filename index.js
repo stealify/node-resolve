@@ -108,7 +108,7 @@ exports.resolve = function (script, dependency, cwd) {
         var dependencyPath = path.join(cwd, path.dirname(script), dependency);
         target = loadAsFile(dependencyPath) || loadAsDirectory(dependencyPath);
     } else {
-        target = loadNpmModules(dependency, path.dirname(script));
+        target = loadNpmModules(dependency, path.join(cwd, path.dirname(script)));
     }
 
     return target ? path.relative(cwd, target) : target;

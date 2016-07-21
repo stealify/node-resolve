@@ -95,15 +95,17 @@ var loadNpmModules = exports.loadNpmModules = function (module, start) {
     return target;
 };
 
-exports.resolve = function (script, dependency) {
+exports.resolve = function (script, dependency, cwd) {
     var target;
 
     if (isCore(dependency)) {
         return null;
     }
 
+    cwd = cwd || '.';
+
     if (startsWith(dependency, './') || startsWith(dependency, '/') || startsWith(dependency, '../')) {
-        var dependencyPath = path.join(path.dirname(script), dependency);
+        var dependencyPath = path.join(cwd, path.dirname(script), dependency);
         target = loadAsFile(dependencyPath) || loadAsDirectory(dependencyPath);
     } else {
         target = loadNpmModules(dependency, path.dirname(script));

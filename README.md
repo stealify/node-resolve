@@ -3,11 +3,14 @@
 
 Locate modules using the [Node resolution algorithm](https://nodejs.org/api/modules.html#modules_all_together), for using third party modules in node_modules.
 
+
+***v1.3 breaking change***, you have to pass a 'cwd' to resolve, '.' is default.
+
 ```js
 var nodeResolve = require('node-resolve');
 
-nodeResolve.resolve('src/index.js', './foo/foo');// src/foo/foo.js
-nodeResolve.resolve('src/index.js', 'babel-core');// node_modules/babel-core/index.js
+nodeResolve.resolve('src/index.js', './foo/foo', '.');// src/foo/foo.js
+nodeResolve.resolve('src/index.js', 'babel-core', '.');// node_modules/babel-core/index.js
 ```
 
 `undefined` is returned if not found, and `null` is returned if it's a builtin module(_fs_,_path_...).

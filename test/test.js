@@ -66,12 +66,20 @@ describe('node-resolve', function () {
             assert.equal(fs, null);
         });
         it('should get null if undefined', function () {
-            var foo = nodeResolve.resolve('index.js', './foo', cwd);
-            assert.equal(foo, undefined);
+            var bar = nodeResolve.resolve('index.js', './bar', cwd);
+            assert.equal(bar, undefined);
         });
         it('should get sub dir', function () {
             var foo = nodeResolve.resolve('index.js', 'lodash/fp/extend', cwd);
             assert.ok(fs.existsSync(foo));
+        });
+        it('should get dir', function () {
+            var foo = nodeResolve.resolve('index.js', './foo/', cwd);
+            assert.ok(fs.existsSync(foo));
+        });
+        it('should get json', function () {
+            var packageFile = nodeResolve.resolve('index.js', './package', cwd);
+            assert.ok(fs.existsSync(packageFile));
         });
     });
 });

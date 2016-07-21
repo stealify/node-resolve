@@ -1,5 +1,5 @@
 # node-resolve
-[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency status][david-dm-image]][david-dm-url] [![Dev Dependency status][david-dm-dev-image]][david-dm-dev-url]
+[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency status][david-dm-image]][david-dm-url] [![Dev Dependency status][david-dm-dev-image]][david-dm-dev-url] [![Coverage Status][coveralls-image]][coveralls-url]
 
 Locate modules using the [Node resolution algorithm](https://nodejs.org/api/modules.html#modules_all_together), for using third party modules in node_modules.
 
@@ -24,3 +24,5 @@ nodeResolve.resolve('src/index.js', 'babel-core', '.');// node_modules/babel-cor
 [david-dm-image]:https://david-dm.org/yanni4night/node-resolve.svg
 [david-dm-dev-url]:https://david-dm.org/yanni4night/node-resolve#info=devDependencies
 [david-dm-dev-image]:https://david-dm.org/yanni4night/node-resolve/dev-status.svg
+[coveralls-image]:https://coveralls.io/repos/github/yanni4night/node-resolve/badge.svg?branch=master
+[coveralls-url]:https://coveralls.io/github/yanni4night/node-resolve?branch=master

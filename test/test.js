@@ -57,6 +57,10 @@ describe('node-resolve', function () {
             var test = nodeResolve.loadAsDirectory(path.join(__dirname, '..'));
             assert.ok(fs.existsSync(test));
         });
+        it('should get moon', function () {
+            var test = nodeResolve.loadAsDirectory(path.join(__dirname, '../moon'));
+            assert.ok(fs.existsSync(test));
+        });
     });
     describe('#resolve', function () {
         var cwd = __dirname + '/..';

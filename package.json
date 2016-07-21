@@ -26,7 +26,6 @@
   "homepage": "https://github.com/yanni4night/node-resolve#readme",
   "devDependencies": {
     "coveralls": "^2.11.11",
-    "eslint": "^2.13.1",
     "mocha": "^2.5.3",
     "mocha-lcov-reporter": "^1.2.0",
     "pre-commit": "^1.1.3"

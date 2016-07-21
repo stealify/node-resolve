@@ -51,7 +51,7 @@ describe('node-resolve', function () {
         });
     });
     describe('#resolve', function () {
-        const cwd = __dirname + '/..';
+        var cwd = __dirname + '/..';
 
         it('should resolve is-builtin-module', function () {
             var target = nodeResolve.resolve('index.js', 'is-builtin-module', cwd);

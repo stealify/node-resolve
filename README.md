@@ -15,6 +15,13 @@ nodeResolve.resolve('src/index.js', 'babel-core', '.');// node_modules/babel-cor
 
 `undefined` is returned if not found, and `null` is returned if it's a builtin module(_fs_,_path_...).
 
+*node-resolve* supports [browser spec](https://github.com/defunctzombie/package-browser-field-spec).
+
+```js
+nodeResolve.resovle('src/index.js', 'inherits', '.', true)// inherits_browser.js
+nodeResolve.resovle('src/index.js', 'fs', '.', true)// undefiend
+```
+
 [npm-url]: https://npmjs.org/package/node-resolve
 [downloads-image]: http://img.shields.io/npm/dm/node-resolve.svg
 [npm-image]: http://img.shields.io/npm/v/node-resolve.svg

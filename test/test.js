@@ -4,9 +4,10 @@
  *
  * changelog
  * 2016-06-14[18:11:14]:revised
+ * 2016-07-28[13:43:35]:support browser spec
  *
  * @author yanni4night@gmail.com
- * @version 1.3.2
+ * @version 1.3.3
  * @since 1.0.0
  */
 'use strict';
@@ -102,8 +103,21 @@ describe('node-resolve', function () {
             assert.ok(fs.existsSync(__dirname + '/' + bar));
         });
         it('should resolve in node_modules', function () {
-            var bar = nodeResolve.resolve('../node_modules/lodash/extend.js', 'mocha', cwd);
-            assert.ok(fs.existsSync(__dirname + '/' + bar));
+            var lodash = nodeResolve.resolve('../node_modules/lodash/extend.js', 'lodash', cwd);
+            assert.ok(fs.existsSync(__dirname + '/' + lodash));
+        });
+        it('should resolve in browser', function () {
+            var inherits = nodeResolve.resolve('test.js', 'inherits', cwd, true);
+            assert.deepEqual(path.basename(inherits), 'inherits_browser.js');
+            assert.ok(fs.existsSync(__dirname + '/' + inherits));
+        });
+        it('should resolve from browser', function () {
+            var index = nodeResolve.resolve('test.js', '../index.js', cwd, true);
+            assert.deepEqual(path.basename(index), 'empty.js');
+        });
+        it('should resolve null from browser', function () {
+            var useless = nodeResolve.resolve('test.js', 'useless', cwd, true);
+            assert.deepEqual(useless, undefined);
         });
     });
 });

@@ -18,8 +18,8 @@ nodeResolve.resolve('src/index.js', 'babel-core', '.');// node_modules/babel-cor
 *node-resolve* supports [browser spec](https://github.com/defunctzombie/package-browser-field-spec).
 
 ```js
-nodeResolve.resovle('src/index.js', 'inherits', '.', true)// inherits_browser.js
-nodeResolve.resovle('src/index.js', 'fs', '.', true)// undefiend
+nodeResolve.resolve('src/index.js', 'inherits', '.', true)// inherits_browser.js
+nodeResolve.resolve('src/index.js', 'fs', '.', true)// undefiend
 ```
 
 [npm-url]: https://npmjs.org/package/node-resolve
